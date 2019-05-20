@@ -16,7 +16,7 @@ public class Review {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int review_id;
+	private int id;
 	
 	@Column(name = "qualification", nullable = true)
 	private int qualification;
@@ -33,12 +33,12 @@ public class Review {
 	@JoinColumn(name = "consumer_id", nullable = false)
 	private Consumer consumerId;
 
-	public int getReview_id() {
-		return review_id;
+	public int getId() {
+		return id;
 	}
 
-	public void setReview_id(int review_id) {
-		this.review_id = review_id;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getQualification() {

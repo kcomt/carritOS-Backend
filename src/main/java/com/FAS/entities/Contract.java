@@ -2,12 +2,16 @@ package com.FAS.entities;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "contract")
@@ -15,21 +19,38 @@ public class Contract {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int contrato_id;
+	private int id;
 	
+	@Size(min = 4, message = "Location must be atleast 4 charecters in length")
+	@Column(name = "location", nullable = false, length = 100)
 	private String location;
 	
-	private Date fecha_inicio;
+	@Size(min = 4, message = "Date must be atleast 4 charecters in length")
+	@Column(name = "date", nullable = false, length = 10)
+	private String date;
 	
-	private Date fecha_fin;
-	
+	@Size(min = 4, message = "Especification must be atleast 4 charecters in length")
+	@Column(name = "especification", nullable = false, length = 250)
 	private String especification;
 	
-	@OneToMany
-	private int business_id;
+	@Column(name = "accepted", nullable = false)
+	private boolean accepted;
 	
-	@OneToMany
-	private int consumer_id;
+	@ManyToOne
+	@JoinColumn(name = "buisness_owner_id", nullable = false)
+	private BuisnessOwner buisnessOwnerId;
+	
+	@ManyToOne
+	@JoinColumn(name = "consumerid", nullable = false)
+	private Consumer consumerId;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getLocation() {
 		return location;
@@ -39,20 +60,12 @@ public class Contract {
 		this.location = location;
 	}
 
-	public Date getFecha_inicio() {
-		return fecha_inicio;
+	public String getDate() {
+		return date;
 	}
 
-	public void setFecha_inicio(Date fecha_inicio) {
-		this.fecha_inicio = fecha_inicio;
-	}
-
-	public Date getFecha_fin() {
-		return fecha_fin;
-	}
-
-	public void setFecha_fin(Date fecha_fin) {
-		this.fecha_fin = fecha_fin;
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	public String getEspecification() {
@@ -63,29 +76,28 @@ public class Contract {
 		this.especification = especification;
 	}
 
-	public int getBusiness_id() {
-		return business_id;
+	public BuisnessOwner getBuisnessOwnerId() {
+		return buisnessOwnerId;
 	}
 
-	public int getContrato_id() {
-		return contrato_id;
+	public void setBuisnessOwnerId(BuisnessOwner buisnessOwnerId) {
+		this.buisnessOwnerId = buisnessOwnerId;
 	}
 
-	public void setContrato_id(int contrato_id) {
-		this.contrato_id = contrato_id;
+	public Consumer getConsumerId() {
+		return consumerId;
 	}
 
-	public void setBusiness_id(int business_id) {
-		this.business_id = business_id;
+	public void setConsumerId(Consumer consumerId) {
+		this.consumerId = consumerId;
 	}
 
-	public int getConsumer_id() {
-		return consumer_id;
+	public boolean isAccepted() {
+		return accepted;
 	}
 
-	public void setConsumer_id(int consumer_id) {
-		this.consumer_id = consumer_id;
+	public void setAccepted(boolean accepted) {
+		this.accepted = accepted;
 	}
-	
-
+		
 }
