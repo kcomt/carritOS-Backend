@@ -10,19 +10,19 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "sale")
-public class Sale {
+@Table(name = "sale_detail")
+public class SaleDetail {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Column(name = "total", nullable = false)
-	private int total;
+	@Column(name = "rating", nullable = false)
+	private double price;
 	
 	@ManyToOne
-	@JoinColumn(name = "seller_id", nullable = false)
-	private Seller sellerId;
+	@JoinColumn(name = "sale_id", nullable = false)
+	private Sale saleId;
 
 	public int getId() {
 		return id;
@@ -32,20 +32,19 @@ public class Sale {
 		this.id = id;
 	}
 
-	public int getTotal() {
-		return total;
+	public double getPrice() {
+		return price;
 	}
 
-	public void setTotal(int total) {
-		this.total = total;
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
-	public Seller getSellerId() {
-		return sellerId;
+	public Sale getSaleId() {
+		return saleId;
 	}
 
-	public void setSellerId(Seller sellerId) {
-		this.sellerId = sellerId;
+	public void setSaleId(Sale saleId) {
+		this.saleId = saleId;
 	}
-	
 }

@@ -29,8 +29,8 @@ public class BuisnessOwner {
 	private String name;
 	
 	@Size(min = 8, message = "DNI must be 8 charecters in length")
-	@Column(name = "DNI", nullable = false, length = 8)
-	private String DNI;
+	@Column(name = "dni", nullable = false, length = 8)
+	private String dni;
 	
 	@Size(min = 2, message = "Buisness Name must be 2 charecters in length")
 	@Column(name = "buisness_name", nullable = false, length = 15)
@@ -71,12 +71,12 @@ public class BuisnessOwner {
 		this.name = name;
 	}
 
-	public String getDNI() {
-		return DNI;
+	public String getdni() {
+		return dni;
 	}
 
-	public void setDNI(String dNI) {
-		DNI = dNI;
+	public void setdni(String dNI) {
+		dni = dNI;
 	}
 
 	public String getBuisnessName() {
