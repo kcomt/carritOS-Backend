@@ -14,8 +14,8 @@ public interface FoodTruckRepository extends JpaRepository<FoodTruck, Integer> {
 	@Query("select f from foodtruck f where f.name like %?1%")
 	List<FoodTruck> fetchByName(String nombre);
 	
-	@Query("select f from foodtruck f inner join f.buisnessOwnerId b where b.id =?1 order by b.rating desc")
-	List<FoodTruck> fetchAllFoodTruckOrderByRating(int id);
+	@Query("select f from foodtruck f order by f.buisnessOwnerId.rating desc")
+	List<FoodTruck> fetchAllFoodTruckOrderByRating();
 	
 	@Query("select f from foodtruck f inner join f.buisnessOwnerId b where b.id =?1")
 	List<FoodTruck> fetchByBuisnessOwnerId(int id);
