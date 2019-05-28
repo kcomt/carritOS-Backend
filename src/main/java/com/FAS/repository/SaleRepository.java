@@ -12,6 +12,6 @@ import com.FAS.entities.Sale;
 @Repository
 public interface SaleRepository extends JpaRepository<Sale, Integer> {
 
-	@Query("select r from sale r where r.sellerId.buisnessOwnerId.id =?1")
+	@Query("select r from Sale r where r.sellerId.buisnessOwnerId.id =?1")
 	List<FoodTruck> fetchByBuisnessOwnerId(int id);
 }
