@@ -67,6 +67,18 @@ public class FoodTruckController {
 		}
 	}
 	
+	@ApiOperation("Listado de foodTrucks")
+	@GetMapping(value = "/ordered", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<FoodTruck>> fetchfoodTrucksOrdered(){
+		try {
+			List<FoodTruck> foodTrucks = new ArrayList<>();
+			foodTrucks= foodTruckService.fetchAllFoodTruckOrderByRating();
+			return new ResponseEntity<List<FoodTruck>>(foodTrucks,HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<List<FoodTruck>>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
 	@ApiOperation("Obtener foodTruck por id")
 	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<FoodTruck> fetchfoodTruck(@PathVariable("id") Integer id) {
@@ -80,6 +92,32 @@ public class FoodTruckController {
 			return new ResponseEntity<FoodTruck>(bO.get(), HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<FoodTruck>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@ApiOperation("Obtener foodTruck por nombre")
+	@GetMapping(value = "/search/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<FoodTruck>> fetchfoodTruckbyName(@PathVariable("name") String name) {
+
+		try {
+			List<FoodTruck> bO = new ArrayList<>();
+			bO = foodTruckService.fetchByName(name);
+			return new ResponseEntity<List<FoodTruck>>(bO,HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<List<FoodTruck>>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@ApiOperation("Obtener foodTruck por nombre")
+	@GetMapping(value = "/owner/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<FoodTruck>> fetchfoodTruckbyName(@PathVariable("ownerId") Integer ownerId) {
+
+		try {
+			List<FoodTruck> bO = new ArrayList<>();
+			bO = foodTruckService.fetchByBuisnessOwnerId(ownerId);
+			return new ResponseEntity<List<FoodTruck>>(bO,HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<List<FoodTruck>>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 

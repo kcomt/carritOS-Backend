@@ -67,6 +67,18 @@ public class ReviewController {
 		}
 	}
 	
+	@ApiOperation("Listado de reviews")
+	@GetMapping(value = "/foodtruck/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Review>> fetchreviewsByFoodTruckId(@PathVariable("id") Integer id){
+		try {
+			List<Review> reviews = new ArrayList<>();
+			reviews= reviewService.fetchByFoodTruckId(id);
+			return new ResponseEntity<List<Review>>(reviews,HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<List<Review>>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
 	@ApiOperation("Obtener review por id")
 	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Review> fetchreview(@PathVariable("id") Integer id) {

@@ -7,5 +7,5 @@ import com.FAS.entities.Sale;
 
 public interface ISaleService extends CrudService<Sale>{
 
-	List<FoodTruck> fetchByBuisnessOwnerId(int id) throws Exception;
+	List<Sale> fetchByBuisnessOwnerId(int id) throws Exception;
 }

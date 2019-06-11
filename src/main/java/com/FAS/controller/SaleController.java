@@ -64,6 +64,18 @@ public class SaleController {
 		}
 	}
 	
+	@ApiOperation("Listado de Sales")
+	@GetMapping(value = "/buisnessOwner/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Sale>> fetchSalesByBuisnessOwnerId(@PathVariable("id") Integer id){
+		try {
+			List<Sale> Sales = new ArrayList<>();
+			Sales= SaleService.fetchByBuisnessOwnerId(id);
+			return new ResponseEntity<List<Sale>>(Sales,HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<List<Sale>>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
 	@ApiOperation("Obtener Sale por id")
 	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Sale> fetchSale(@PathVariable("id") Integer id) {

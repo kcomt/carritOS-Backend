@@ -60,7 +60,7 @@ public class SaleServiceImpl implements ISaleService{
 
 	@Transactional(readOnly=true)
 	@Override
-	public List<FoodTruck> fetchByBuisnessOwnerId(int id) throws Exception {
+	public List<Sale> fetchByBuisnessOwnerId(int id) throws Exception {
 		// TODO Auto-generated method stub
 		return saleRepository.fetchByBuisnessOwnerId(id);
 	}

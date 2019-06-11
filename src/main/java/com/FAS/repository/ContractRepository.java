@@ -12,8 +12,8 @@ import com.FAS.entities.Contract;
 public interface ContractRepository extends JpaRepository<Contract, Integer> {
 
 	@Query("select c from Contract c where c.buisnessOwnerId.id =?1 and c.accepted = ?2")
-	List<Contract> fetchByBuisnessOwnerIdState(int id, bool state);
+	List<Contract> fetchByBuisnessOwnerIdState(int id, boolean state);
 	
 	@Query("select c from Contract c where c.consumerId.id =?1 and c.accepted = ?2")
-	List<Contract> fetchByConsumerIdState(int id, bool state);
+	List<Contract> fetchByConsumerIdState(int id, boolean state);
 }

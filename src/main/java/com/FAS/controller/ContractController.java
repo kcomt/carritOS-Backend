@@ -67,10 +67,10 @@ public class ContractController {
 	
 	@ApiOperation("Listado de contracts por ownerId y estado")
 	@GetMapping(value = "owner/{ownerId}/state/{estado}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<Contract>> fetchcontractsByownerIdAndState(){
+	public ResponseEntity<List<Contract>> fetchcontractsByownerIdAndState(@PathVariable("ownerId") int ownerId,@PathVariable("estado") boolean estado){
 		try {
 			List<Contract> contracts = new ArrayList<>();
-			contracts= contractService.findAll();
+			contracts= contractService.fetchByBuisnessOwnerIdState(ownerId, estado);
 			return new ResponseEntity<List<Contract>>(contracts,HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<List<Contract>>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -79,10 +79,10 @@ public class ContractController {
 	
 	@ApiOperation("Listado de contracts por consumerId y estado")
 	@GetMapping(value = "consumer/{consumerId}/state/{estado}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<Contract>> fetchcontractsByconsumerIdAndState(@PathVariable("consumerId") int consumerId,@PathVariable("estado") bool estado){
+	public ResponseEntity<List<Contract>> fetchcontractsByconsumerIdAndState(@PathVariable("consumerId") int consumerId,@PathVariable("estado") boolean estado){
 		try {
 			List<Contract> contracts = new ArrayList<>();
-			contracts= contractService.findAll();
+			contracts= contractService.fetchByConsumerIdState(consumerId, estado);
 			return new ResponseEntity<List<Contract>>(contracts,HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<List<Contract>>(HttpStatus.INTERNAL_SERVER_ERROR);

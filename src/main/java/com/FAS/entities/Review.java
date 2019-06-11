@@ -32,6 +32,10 @@ public class Review {
 	@ManyToOne
 	@JoinColumn(name = "consumer_id", nullable = false)
 	private Consumer consumerId;
+	
+	@Size(min = 4, message = "Date must be atleast 4 charecters in length")
+	@Column(name = "date", nullable = false, length = 10)
+	private String date;
 
 	public int getId() {
 		return id;
@@ -71,6 +75,14 @@ public class Review {
 
 	public void setConsumerId(Consumer consumerId) {
 		this.consumerId = consumerId;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 }

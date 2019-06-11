@@ -61,14 +61,14 @@ public class ContractServiceImpl implements IContractService{
 
 	@Transactional(readOnly=true)
 	@Override
-	public List<Contract> fetchByBuisnessOwnerIdState(int id, bool state) throws Exception {
+	public List<Contract> fetchByBuisnessOwnerIdState(int id, boolean state) throws Exception {
 		// TODO Auto-generated method stub
 		return contractRepository.fetchByBuisnessOwnerIdState(id, state);
 	}
 
 	@Transactional(readOnly=true)
 	@Override
-	public List<Contract> fetchByConsumerIdState(int id, bool state) throws Exception {
+	public List<Contract> fetchByConsumerIdState(int id, boolean state) throws Exception {
 		// TODO Auto-generated method stub
 		return contractRepository.fetchByConsumerIdState(id, state);
 	}
