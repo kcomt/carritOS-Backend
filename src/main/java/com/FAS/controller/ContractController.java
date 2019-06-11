@@ -65,30 +65,6 @@ public class ContractController {
 		}
 	}
 	
-	@ApiOperation("Listado de contracts por ownerId y estado")
-	@GetMapping(value = "owner/{ownerId}/state/{estado}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<Contract>> fetchcontractsByownerIdAndState(){
-		try {
-			List<Contract> contracts = new ArrayList<>();
-			contracts= contractService.findAll();
-			return new ResponseEntity<List<Contract>>(contracts,HttpStatus.OK);
-		} catch (Exception e) {
-			return new ResponseEntity<List<Contract>>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
-	
-	@ApiOperation("Listado de contracts por consumerId y estado")
-	@GetMapping(value = "consumer/{consumerId}/state/{estado}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<Contract>> fetchcontractsByconsumerIdAndState(@PathVariable("consumerId") int consumerId,@PathVariable("estado") bool estado){
-		try {
-			List<Contract> contracts = new ArrayList<>();
-			contracts= contractService.findAll();
-			return new ResponseEntity<List<Contract>>(contracts,HttpStatus.OK);
-		} catch (Exception e) {
-			return new ResponseEntity<List<Contract>>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
-	
 	@ApiOperation("Obtener contract por id")
 	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Contract> fetchcontract(@PathVariable("id") Integer id) {
