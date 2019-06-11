@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    password: 9n2016/a
+    password: 1234
     url: jdbc:postgresql://localhost/carritosrest
     username: postgres
   jpa:
