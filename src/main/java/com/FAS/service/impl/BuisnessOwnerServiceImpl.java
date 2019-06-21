@@ -58,5 +58,26 @@ public class BuisnessOwnerServiceImpl implements IBuisnessOwnerService{
 		// TODO Auto-generated method stub
 		buisnessOwnerRepository.deleteAll();
 	}
+
+	@Transactional
+	@Override
+	public Optional<BuisnessOwner> findByUsername(String username) {
+		// TODO Auto-generated method stub
+		return buisnessOwnerRepository.findByUsername(username);
+	}
+
+	@Transactional
+	@Override
+	public Boolean existsByUsername(String username) {
+		// TODO Auto-generated method stub
+		return buisnessOwnerRepository.existsByUsername(username);
+	}
+
+	@Transactional
+	@Override
+	public Boolean existsByEmail(String email) {
+		// TODO Auto-generated method stub
+		return buisnessOwnerRepository.existsByEmail(email);
+	}
 	
 }
