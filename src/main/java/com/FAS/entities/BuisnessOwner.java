@@ -95,5 +95,4 @@ public class BuisnessOwner {
 		this.rating = rating;
 	}
 	
-	
 }
