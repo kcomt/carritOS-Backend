@@ -27,27 +27,27 @@ public class BuisnessOwner {
 	
 	@NaturalId
     @NotBlank
-    @Size(max = 50)
+    @Size(max = 100)
     @Email
     private String email;
 	
 	@Size(min = 3, message = "Username must be atleast 3 charecters in length")
-	@Column(name = "username", nullable = false, length = 15)
+	@Column(name = "username", nullable = false, length = 50)
 	private String username;
 	
 	@NotBlank
 	@Size(min = 3, message = "Password must be atleast 3 charecters in length")
-	@Column(name = "password", nullable = false, length = 15)
+	@Column(name = "password", nullable = false, length = 255)
 	private String password;
 	
 	@NotBlank
 	@Size(min = 4, message = "Username must be atleast 4 charecters in length")
-	@Column(name = "name", nullable = false, length = 20)
+	@Column(name = "name", nullable = false, length = 50)
 	private String name;
 	
 	@NotBlank
 	@Size(min = 4, message = "Username must be atleast 4 charecters in length")
-	@Column(name = "last_name", nullable = false, length = 20)
+	@Column(name = "last_name", nullable = false, length = 50)
 	private String lastName;
 	
 	@NotBlank
@@ -57,7 +57,7 @@ public class BuisnessOwner {
 	
 	@NotBlank
 	@Size(min = 2, message = "Buisness Name must be 2 charecters in length")
-	@Column(name = "buisness_name", nullable = false, length = 15)
+	@Column(name = "buisness_name", nullable = false, length = 150)
 	private String buisnessName;
 	
 	@Column(name = "rating", nullable = false)

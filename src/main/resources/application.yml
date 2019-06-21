@@ -12,7 +12,7 @@ spring:
     properties.hibernate.temp.use_jdbc_metadata_defaults: false
   security:
     user:
-      name: giannella
+      name: giannela
       password: 1234
     
     
