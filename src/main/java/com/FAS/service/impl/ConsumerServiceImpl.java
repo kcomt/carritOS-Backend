@@ -1,9 +1,15 @@
 package com.FAS.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,7 +18,7 @@ import com.FAS.repository.ConsumerRepository;
 import com.FAS.service.IConsumerService;
 
 @Service
-public class ConsumerServiceImpl implements IConsumerService{
+public class ConsumerServiceImpl implements IConsumerService, UserDetailsService{
 
 	@Autowired
 	private ConsumerRepository consumerRepository;
@@ -58,6 +64,15 @@ public class ConsumerServiceImpl implements IConsumerService{
 	public void deleteAll() throws Exception {
 		// TODO Auto-generated method stub
 		consumerRepository.deleteAll();
+	}
+	
+	@Transactional(readOnly = true)
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		Consumer user = consumerRepository.findByUsername(username);
+		
+		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+		return new User(user.getUsername(), user.getPassword(), true, true, true, true, authorities);
 	}
 
 }

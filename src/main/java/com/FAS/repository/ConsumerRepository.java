@@ -7,5 +7,5 @@ import com.FAS.entities.Consumer;
 
 @Repository
 public interface ConsumerRepository extends JpaRepository<Consumer, Integer> {
- 
+	public Consumer findByUsername(String username);
 }

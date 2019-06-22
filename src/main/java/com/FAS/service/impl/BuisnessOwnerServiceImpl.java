@@ -1,18 +1,25 @@
 package com.FAS.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.FAS.entities.BuisnessOwner;
+import com.FAS.entities.Consumer;
 import com.FAS.repository.BuisnessOwnerRepository;
 import com.FAS.service.IBuisnessOwnerService;
 
 @Service
-public class BuisnessOwnerServiceImpl implements IBuisnessOwnerService{
+public class BuisnessOwnerServiceImpl implements IBuisnessOwnerService, UserDetailsService{
 
 	@Autowired
 	private BuisnessOwnerRepository buisnessOwnerRepository;
@@ -61,13 +68,6 @@ public class BuisnessOwnerServiceImpl implements IBuisnessOwnerService{
 
 	@Transactional
 	@Override
-	public Optional<BuisnessOwner> findByUsername(String username) {
-		// TODO Auto-generated method stub
-		return buisnessOwnerRepository.findByUsername(username);
-	}
-
-	@Transactional
-	@Override
 	public Boolean existsByUsername(String username) {
 		// TODO Auto-generated method stub
 		return buisnessOwnerRepository.existsByUsername(username);
@@ -78,6 +78,14 @@ public class BuisnessOwnerServiceImpl implements IBuisnessOwnerService{
 	public Boolean existsByEmail(String email) {
 		// TODO Auto-generated method stub
 		return buisnessOwnerRepository.existsByEmail(email);
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		BuisnessOwner user = buisnessOwnerRepository.findByUsername(username);
+		
+		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+		return new User(user.getUsername(), user.getPassword(), true, true, true, true, authorities);
 	}
 	
 }
