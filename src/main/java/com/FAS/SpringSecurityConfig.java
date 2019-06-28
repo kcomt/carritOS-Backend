@@ -15,6 +15,7 @@ import com.FAS.service.impl.SellerServiceImpl;
 
 @EnableGlobalMethodSecurity(securedEnabled=true)
 @Configuration
+@Order(1000)
 public class SpringSecurityConfig  extends WebSecurityConfigurerAdapter{
 	
 	@Autowired
@@ -34,11 +35,11 @@ public class SpringSecurityConfig  extends WebSecurityConfigurerAdapter{
 	}
 	
 	@Configuration
-	@Order(1)
+	@Order(3)
 	public static class BuisnessOwnerConfigurationAdapter extends WebSecurityConfigurerAdapter {
 		
 		@Autowired
-		private BCryptPasswordEncoder passwordEncoder;
+		private BCryptPasswordEncoder passwordEncoder2;
 		
 		@Autowired
 		private BuisnessOwnerServiceImpl buisnessOwnerServiceImpl;
@@ -49,16 +50,16 @@ public class SpringSecurityConfig  extends WebSecurityConfigurerAdapter{
 		
 		@Autowired
 		public void configurerGlobal(AuthenticationManagerBuilder build) throws Exception {
-			build.userDetailsService(buisnessOwnerServiceImpl).passwordEncoder(passwordEncoder);
+			build.userDetailsService(buisnessOwnerServiceImpl).passwordEncoder(passwordEncoder2);
 			}
 	}
 	
 	@Configuration
-	@Order(2)
+	@Order(4)
 	public static class SellerConfigurationAdapter extends WebSecurityConfigurerAdapter {
 		
 		@Autowired
-		private BCryptPasswordEncoder passwordEncoder;
+		private BCryptPasswordEncoder passwordEncoder3;
 		
 		@Autowired
 		private SellerServiceImpl sellerServiceImpl;
@@ -70,7 +71,7 @@ public class SpringSecurityConfig  extends WebSecurityConfigurerAdapter{
 		
 		@Autowired
 		public void configurerGlobal(AuthenticationManagerBuilder build) throws Exception {
-			build.userDetailsService(sellerServiceImpl).passwordEncoder(passwordEncoder);
+			build.userDetailsService(sellerServiceImpl).passwordEncoder(passwordEncoder3);
 			}
 	}
 }

@@ -19,9 +19,21 @@ public class FoodTruck {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Size(min = 4, message = "Username must be atleast 4 charecters in length")
+	@Size(min = 1, message = "Username must be atleast 1 charecters in length")
 	@Column(name = "name", nullable = false, length = 20)
 	private String name;
+	
+	@Size(min = 1, message = "Phonenumber must be atleast 1 charecters in length")
+	@Column(name = "phoneNumber", nullable = false, length = 20)
+	private String phoneNumber;
+	
+	@Size(min = 1, message = "FoodType must be atleast 1 charecters in length")
+	@Column(name = "foodType", nullable = false, length = 20)
+	private String foodType;
+	
+	@Size(min = 1, message = "Cost must be atleast 1 charecters in length")
+	@Column(name = "cost", nullable = false, length = 20)
+	private String cost;
 	
 	@Column(name = "longitude", nullable = false)
 	private float longitude;

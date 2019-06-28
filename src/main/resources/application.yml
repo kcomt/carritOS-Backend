@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    password: 9n2016/a
+    password: 1234
     url: jdbc:postgresql://localhost/carritosrest
     username: postgres
   jpa:
@@ -10,10 +10,7 @@ spring:
       ddl-auto: update
     show-sql: 'false'
     properties.hibernate.temp.use_jdbc_metadata_defaults: false
-  security:
-    user:
-      name: giannela
-      password: 1234
+
     
     
     
