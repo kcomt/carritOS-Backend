@@ -15,7 +15,6 @@ import com.FAS.service.impl.SellerServiceImpl;
 
 @EnableGlobalMethodSecurity(securedEnabled=true)
 @Configuration
-@Order(1000)
 public class SpringSecurityConfig  extends WebSecurityConfigurerAdapter{
 	
 	@Autowired
@@ -26,6 +25,9 @@ public class SpringSecurityConfig  extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		  http
+	      .csrf().disable()
+	      .authorizeRequests().anyRequest().permitAll();
 	}
 
 	@Autowired
@@ -35,7 +37,7 @@ public class SpringSecurityConfig  extends WebSecurityConfigurerAdapter{
 	}
 	
 	@Configuration
-	@Order(3)
+	@Order(1)
 	public static class BuisnessOwnerConfigurationAdapter extends WebSecurityConfigurerAdapter {
 		
 		@Autowired
@@ -46,6 +48,9 @@ public class SpringSecurityConfig  extends WebSecurityConfigurerAdapter{
 		
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
+			  http
+		      .csrf().disable()
+		      .authorizeRequests().anyRequest().permitAll();
 		}
 		
 		@Autowired
@@ -55,7 +60,7 @@ public class SpringSecurityConfig  extends WebSecurityConfigurerAdapter{
 	}
 	
 	@Configuration
-	@Order(4)
+	@Order(2)
 	public static class SellerConfigurationAdapter extends WebSecurityConfigurerAdapter {
 		
 		@Autowired
@@ -66,7 +71,7 @@ public class SpringSecurityConfig  extends WebSecurityConfigurerAdapter{
 		
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
-
+			http.authorizeRequests().anyRequest().authenticated();
 		}
 		
 		@Autowired
