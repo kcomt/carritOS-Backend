@@ -30,7 +30,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping("/foodTrucks2")
+@RequestMapping("/foodTrucks")
 @Api(value="REST foodTruck")
 public class FoodTruckController {
 
