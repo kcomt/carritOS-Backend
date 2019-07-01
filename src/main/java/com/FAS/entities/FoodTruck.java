@@ -84,6 +84,30 @@ public class FoodTruck {
 	public void setBuisnessOwnerId(BuisnessOwner buisnessOwnerId) {
 		this.buisnessOwnerId = buisnessOwnerId;
 	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getFoodType() {
+		return foodType;
+	}
+
+	public void setFoodType(String foodType) {
+		this.foodType = foodType;
+	}
+
+	public String getCost() {
+		return cost;
+	}
+
+	public void setCost(String cost) {
+		this.cost = cost;
+	}
 	
 	
 }
