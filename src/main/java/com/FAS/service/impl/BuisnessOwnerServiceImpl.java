@@ -1,15 +1,11 @@
 package com.FAS.service.impl;
 
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,7 +15,7 @@ import com.FAS.repository.BuisnessOwnerRepository;
 import com.FAS.service.IBuisnessOwnerService;
 
 @Service
-public class BuisnessOwnerServiceImpl implements IBuisnessOwnerService, UserDetailsService {
+public class BuisnessOwnerServiceImpl implements IBuisnessOwnerService{
 
 	@Autowired
 	private BuisnessOwnerRepository buisnessOwnerRepository;
@@ -66,13 +62,5 @@ public class BuisnessOwnerServiceImpl implements IBuisnessOwnerService, UserDeta
 		buisnessOwnerRepository.deleteAll();
 	}
 
-	@Transactional(readOnly = true)
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		BuisnessOwner user = buisnessOwnerRepository.findByUsername(username);
-		System.out.println(user.getPassword() + "=====" + user.getUsername());
-		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-		return new User(user.getUsername(), user.getPassword(), true, true, true, true, authorities);
-	}
 
 }

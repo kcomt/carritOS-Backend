@@ -16,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.FAS.service.impl.BuisnessOwnerServiceImpl;
+import com.FAS.service.impl.UserDetail;
 
 @Configuration
 @EnableWebSecurity
@@ -25,7 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
 	@Autowired
-	private BuisnessOwnerServiceImpl buisnessOwnerServiceImpl;
+	private UserDetail userDetailService;
 	@Autowired
 	private JwtRequestFilter jwtRequestFilter;
 
@@ -34,7 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 // configure AuthenticationManager so that it knows from where to load
 // user for matching credentials
 // Use BCryptPasswordEncoder
-		auth.userDetailsService(buisnessOwnerServiceImpl).passwordEncoder(passwordEncoder());
+		auth.userDetailsService(userDetailService).passwordEncoder(passwordEncoder());
 	}
 
 	@Bean

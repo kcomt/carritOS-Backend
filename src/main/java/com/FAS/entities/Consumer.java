@@ -17,19 +17,19 @@ public class Consumer {
 	private int id;
 	
 	@Size(min = 3, message = "Username must be atleast 3 charecters in length")
-	@Column(name = "username", nullable = false, length = 15)
+	@Column(name = "username", nullable = false, length = 100)
 	private String username;
 	
 	@Size(min = 3, message = "Password must be atleast 3 charecters in length")
-	@Column(name = "password", nullable = false, length = 15)
+	@Column(name = "password", nullable = false, length = 255)
 	private String password;
 	
 	@Size(min = 4, message = "Username must be atleast 4 charecters in length")
-	@Column(name = "name", nullable = false, length = 20)
+	@Column(name = "name", nullable = false, length = 100)
 	private String name;
 	
 	@Size(min = 5, message = "Email must be 5 charecters in length")
-	@Column(name = "email", nullable = false, length = 15)
+	@Column(name = "email", nullable = false, length = 100)
 	private String email;
 
 	public int getId() {

@@ -18,6 +18,7 @@ import com.FAS.config.JwtTokenUtil;
 import com.FAS.entities.JwtRequest;
 import com.FAS.entities.JwtResponse;
 import com.FAS.service.impl.BuisnessOwnerServiceImpl;
+import com.FAS.service.impl.UserDetail;
 
 
 
@@ -30,7 +31,7 @@ public class JwtAuthenticationController {
 	@Autowired
 	private JwtTokenUtil jwtTokenUtil;
 	@Autowired
-	private BuisnessOwnerServiceImpl userDetailsService;
+	private UserDetail userDetailsService;
 
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {

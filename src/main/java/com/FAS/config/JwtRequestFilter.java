@@ -15,13 +15,14 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.FAS.service.impl.BuisnessOwnerServiceImpl;
 import com.FAS.service.impl.ConsumerServiceImpl;
+import com.FAS.service.impl.UserDetail;
 
 import io.jsonwebtoken.ExpiredJwtException;
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter{
 
 	@Autowired
-	private BuisnessOwnerServiceImpl jwtUserDetailsService;
+	private UserDetail jwtUserDetailsService;
 	
 	@Autowired
 	private JwtTokenUtil jwtTokenUtil;
