@@ -66,10 +66,6 @@ public class BuisnessOwnerServiceImpl implements IBuisnessOwnerService, UserDeta
 		buisnessOwnerRepository.deleteAll();
 	}
 
-	
-
-
-
 	@Transactional(readOnly = true)
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

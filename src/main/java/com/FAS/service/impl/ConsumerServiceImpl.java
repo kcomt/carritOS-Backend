@@ -13,12 +13,13 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.FAS.entities.BuisnessOwner;
 import com.FAS.entities.Consumer;
 import com.FAS.repository.ConsumerRepository;
 import com.FAS.service.IConsumerService;
 
 @Service
-public class ConsumerServiceImpl implements IConsumerService{
+public class ConsumerServiceImpl implements IConsumerService, UserDetailsService{
 
 	@Autowired
 	private ConsumerRepository consumerRepository;
@@ -72,6 +73,14 @@ public class ConsumerServiceImpl implements IConsumerService{
 	public Consumer findByUsername(String username) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		Consumer user = consumerRepository.findByUsername(username);
+		System.out.println(user.getPassword() + "=====" + user.getUsername());
+		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+		return new User(user.getUsername(), user.getPassword(), true, true, true, true, authorities);
 	}
 
 }
