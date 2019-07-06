@@ -11,8 +11,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.FAS.entities.BuisnessOwner;
 import com.FAS.entities.Seller;
 import com.FAS.repository.SellerRepository;
 import com.FAS.service.ISellerService;
@@ -23,6 +23,7 @@ public class SellerServiceImpl implements ISellerService, UserDetailsService{
 	@Autowired
 	private SellerRepository sellerRepository;
 	
+	@Transactional(readOnly = true)
 	@Override
 	public List<Seller> findAll() throws Exception {
 		// TODO Auto-generated method stub
@@ -65,12 +66,20 @@ public class SellerServiceImpl implements ISellerService, UserDetailsService{
 		return null;
 	}
 
+	@Transactional(readOnly = true)
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Seller user = sellerRepository.findByUsername(username);
 		
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 		return new User(user.getUsername(), user.getPassword(), true, true, true, true, authorities);
+	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Seller findByUsername(String seller) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

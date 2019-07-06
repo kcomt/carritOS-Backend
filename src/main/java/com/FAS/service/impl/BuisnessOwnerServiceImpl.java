@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.FAS.entities.BuisnessOwner;
-import com.FAS.entities.Consumer;
 import com.FAS.repository.BuisnessOwnerRepository;
 import com.FAS.service.IBuisnessOwnerService;
 
@@ -80,12 +79,20 @@ public class BuisnessOwnerServiceImpl implements IBuisnessOwnerService, UserDeta
 		return buisnessOwnerRepository.existsByEmail(email);
 	}
 
+	@Transactional(readOnly=true)
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		BuisnessOwner user = buisnessOwnerRepository.findByUsername(username);
 		
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 		return new User(user.getUsername(), user.getPassword(), true, true, true, true, authorities);
+	}
+	
+	@Transactional(readOnly=true)
+	@Override
+	public BuisnessOwner findByUsername(String username) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

@@ -14,13 +14,13 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.NaturalId;
 
 @Entity
-@Table(name = "buisness_owners", uniqueConstraints = {
+@Table(name = "buisness_owners"/*, uniqueConstraints = {
 		@UniqueConstraint(columnNames = {"username"} ),
 		@UniqueConstraint(columnNames = {"dni"} ),
 		@UniqueConstraint(columnNames = {"buisness_name"} )
-})
+}*/)
 public class BuisnessOwner {
-	
+	 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;

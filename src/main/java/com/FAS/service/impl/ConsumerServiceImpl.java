@@ -74,5 +74,13 @@ public class ConsumerServiceImpl implements IConsumerService, UserDetailsService
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 		return new User(user.getUsername(), user.getPassword(), true, true, true, true, authorities);
 	}
+	
+	@Transactional(readOnly = true)
+	@Override
+	public Consumer findByUsername(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 
 }

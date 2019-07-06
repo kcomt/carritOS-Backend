@@ -1,7 +1,11 @@
 spring:
+  security:
+    jwt:
+      token:
+        secret: FAS 
   datasource:
     driver-class-name: org.postgresql.Driver
-    password: 1234
+    password: 9n2016/a
     url: jdbc:postgresql://localhost/carritosrest
     username: postgres
   jpa:
@@ -10,7 +14,3 @@ spring:
       ddl-auto: update
     show-sql: 'false'
     properties.hibernate.temp.use_jdbc_metadata_defaults: false
-
-    
-    
-    
