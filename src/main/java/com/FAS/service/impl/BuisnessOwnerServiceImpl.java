@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,12 +19,12 @@ import com.FAS.repository.BuisnessOwnerRepository;
 import com.FAS.service.IBuisnessOwnerService;
 
 @Service
-public class BuisnessOwnerServiceImpl implements IBuisnessOwnerService,UserDetailsService{
+public class BuisnessOwnerServiceImpl implements IBuisnessOwnerService, UserDetailsService {
 
 	@Autowired
 	private BuisnessOwnerRepository buisnessOwnerRepository;
-	
-	@Transactional(readOnly=true)
+
+	@Transactional(readOnly = true)
 	@Override
 	public List<BuisnessOwner> findAll() throws Exception {
 		// TODO Auto-generated method stub
@@ -44,7 +45,7 @@ public class BuisnessOwnerServiceImpl implements IBuisnessOwnerService,UserDetai
 		return buisnessOwnerRepository.save(t);
 	}
 
-	@Transactional(readOnly=true)
+	@Transactional(readOnly = true)
 	@Override
 	public Optional<BuisnessOwner> findById(Integer id) throws Exception {
 		// TODO Auto-generated method stub
@@ -65,23 +66,17 @@ public class BuisnessOwnerServiceImpl implements IBuisnessOwnerService,UserDetai
 		buisnessOwnerRepository.deleteAll();
 	}
 
-	@Transactional(readOnly=true)
+	
+
+
+
+	@Transactional(readOnly = true)
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		BuisnessOwner user = buisnessOwnerRepository.findByUsername(username);
-		
+		System.out.println(user.getPassword() + "=====" + user.getUsername());
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 		return new User(user.getUsername(), user.getPassword(), true, true, true, true, authorities);
 	}
-	
-	@Transactional(readOnly=true)
-	@Override
-	public BuisnessOwner findByUsername(String username) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	
 
 }

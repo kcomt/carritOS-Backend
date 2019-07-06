@@ -7,6 +7,6 @@ import com.FAS.entities.BuisnessOwner;
 
 @Repository
 public interface BuisnessOwnerRepository extends JpaRepository<BuisnessOwner, Integer> {
-	public BuisnessOwner findByUsername(String username);
+	BuisnessOwner findByUsername(String username);
 	
 }

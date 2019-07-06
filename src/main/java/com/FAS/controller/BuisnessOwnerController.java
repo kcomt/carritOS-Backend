@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,6 +35,7 @@ public class BuisnessOwnerController {
 
 	@Autowired
 	private IBuisnessOwnerService buisnessOwnerService;
+	private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 	
 	@ApiOperation("Registro de buisnessOwners")
 	@PostMapping(consumes= MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE)
@@ -41,6 +43,7 @@ public class BuisnessOwnerController {
 	{
 		try {
 			BuisnessOwner hor = new BuisnessOwner();
+			buisnessOwner.setPassword(passwordEncoder.encode(buisnessOwner.getPassword()));
 			hor= buisnessOwnerService.save(buisnessOwner);
 			
 			URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(hor.getId()).toUri();
