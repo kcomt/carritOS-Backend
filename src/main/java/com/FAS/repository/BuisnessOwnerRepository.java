@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import com.FAS.entities.BuisnessOwner;
 
-
 @Repository
 public interface BuisnessOwnerRepository extends JpaRepository<BuisnessOwner, Integer> {
 	 BuisnessOwner findByUsername(String username);

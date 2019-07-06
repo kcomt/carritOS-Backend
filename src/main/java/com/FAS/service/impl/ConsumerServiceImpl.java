@@ -5,6 +5,11 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,7 +18,7 @@ import com.FAS.repository.ConsumerRepository;
 import com.FAS.service.IConsumerService;
 
 @Service
-public class ConsumerServiceImpl implements IConsumerService{
+public class ConsumerServiceImpl implements IConsumerService, UserDetailsService{
 
 	@Autowired
 	private ConsumerRepository consumerRepository;
@@ -60,8 +65,16 @@ public class ConsumerServiceImpl implements IConsumerService{
 		// TODO Auto-generated method stub
 		consumerRepository.deleteAll();
 	}
-<<<<<<< HEAD
 	
+
+	
+	@Transactional(readOnly = true)
+	@Override
+	public Consumer findByUsername(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	@Transactional(readOnly = true)
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -71,14 +84,6 @@ public class ConsumerServiceImpl implements IConsumerService{
 		return new User(user.getUsername(), user.getPassword(), true, true, true, true, authorities);
 	}
 	
-	@Transactional(readOnly = true)
-	@Override
-	public Consumer findByUsername(String username) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 
-=======
->>>>>>> c32cb4e436f0b288a927a96c79d22cd29dafda65
+
 }

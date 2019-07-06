@@ -1,10 +1,13 @@
 package com.FAS.service.impl;
 
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,7 +16,7 @@ import com.FAS.repository.SellerRepository;
 import com.FAS.service.ISellerService;
 
 @Service
-public class SellerServiceImpl implements ISellerService{
+public class SellerServiceImpl implements ISellerService, UserDetailsService{
 
 	@Autowired
 	private SellerRepository sellerRepository;
@@ -55,21 +58,14 @@ public class SellerServiceImpl implements ISellerService{
 		
 	}
 
+	
 	@Override
 	public List<Seller> fetchByBuisnessOwnerId(int id) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
-<<<<<<< HEAD
 
-	@Transactional(readOnly = true)
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Seller user = sellerRepository.findByUsername(username);
-		
-		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-		return new User(user.getUsername(), user.getPassword(), true, true, true, true, authorities);
-	}
+
 
 	@Transactional(readOnly = true)
 	@Override
@@ -78,7 +74,13 @@ public class SellerServiceImpl implements ISellerService{
 		return null;
 	}
 
-=======
->>>>>>> c32cb4e436f0b288a927a96c79d22cd29dafda65
+	@Transactional(readOnly = true)
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 	
 }

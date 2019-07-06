@@ -9,18 +9,13 @@
 		<version>2.0.6.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	
 	<groupId>com.FAS</groupId>
 	<artifactId>carritOSRest</artifactId>
 	<version>1.0</version>
-	<packaging>jar</packaging>
-	
 	<name>carritOSRest</name>
 	<description>API REST carritOS</description>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
 
@@ -29,10 +24,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-<<<<<<< HEAD
 
-=======
->>>>>>> c32cb4e436f0b288a927a96c79d22cd29dafda65
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -53,8 +45,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
-
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
@@ -66,7 +56,6 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.9.2</version>
 		</dependency>
-<<<<<<< HEAD
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -90,8 +79,6 @@
 			<version>5.0.7.Final</version>
 		</dependency>
 
-=======
->>>>>>> c32cb4e436f0b288a927a96c79d22cd29dafda65
 	</dependencies>
 
 	<build>
