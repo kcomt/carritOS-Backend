@@ -16,7 +16,7 @@ import com.FAS.repository.SellerRepository;
 import com.FAS.service.ISellerService;
 
 @Service
-public class SellerServiceImpl implements ISellerService, UserDetailsService{
+public class SellerServiceImpl implements ISellerService{
 
 	@Autowired
 	private SellerRepository sellerRepository;
@@ -73,14 +73,5 @@ public class SellerServiceImpl implements ISellerService, UserDetailsService{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Transactional(readOnly = true)
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
 	
 }

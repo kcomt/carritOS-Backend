@@ -18,12 +18,11 @@ import com.FAS.repository.ConsumerRepository;
 import com.FAS.service.IConsumerService;
 
 @Service
-public class ConsumerServiceImpl implements IConsumerService, UserDetailsService{
+public class ConsumerServiceImpl implements IConsumerService{
 
 	@Autowired
 	private ConsumerRepository consumerRepository;
-	
-	
+		
 	@Transactional(readOnly=true)
 	@Override
 	public List<Consumer> findAll() throws Exception {
@@ -74,16 +73,5 @@ public class ConsumerServiceImpl implements IConsumerService, UserDetailsService
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Transactional(readOnly = true)
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Consumer user = consumerRepository.findByUsername(username);
-		
-		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-		return new User(user.getUsername(), user.getPassword(), true, true, true, true, authorities);
-	}
-	
-
 
 }

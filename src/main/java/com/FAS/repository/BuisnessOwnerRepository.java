@@ -7,7 +7,6 @@ import com.FAS.entities.BuisnessOwner;
 
 @Repository
 public interface BuisnessOwnerRepository extends JpaRepository<BuisnessOwner, Integer> {
-	 BuisnessOwner findByUsername(String username);
-	 Boolean existsByUsername(String username);
-	 Boolean existsByEmail(String email);
+	public BuisnessOwner findByUsername(String username);
+	
 }

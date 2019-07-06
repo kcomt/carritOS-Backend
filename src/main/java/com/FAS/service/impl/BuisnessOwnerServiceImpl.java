@@ -65,21 +65,6 @@ public class BuisnessOwnerServiceImpl implements IBuisnessOwnerService,UserDetai
 		buisnessOwnerRepository.deleteAll();
 	}
 
-	@Transactional
-	@Override
-	public Boolean existsByUsername(String username) {
-		// TODO Auto-generated method stub
-		return buisnessOwnerRepository.existsByUsername(username);
-	}
-
-	@Transactional
-	@Override
-	public Boolean existsByEmail(String email) {
-		// TODO Auto-generated method stub
-		return buisnessOwnerRepository.existsByEmail(email);
-	}
-
-
 	@Transactional(readOnly=true)
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
