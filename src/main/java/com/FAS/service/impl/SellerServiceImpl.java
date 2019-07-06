@@ -5,11 +5,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,7 +13,7 @@ import com.FAS.repository.SellerRepository;
 import com.FAS.service.ISellerService;
 
 @Service
-public class SellerServiceImpl implements ISellerService, UserDetailsService{
+public class SellerServiceImpl implements ISellerService{
 
 	@Autowired
 	private SellerRepository sellerRepository;
@@ -65,6 +60,7 @@ public class SellerServiceImpl implements ISellerService, UserDetailsService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+<<<<<<< HEAD
 
 	@Transactional(readOnly = true)
 	@Override
@@ -82,5 +78,7 @@ public class SellerServiceImpl implements ISellerService, UserDetailsService{
 		return null;
 	}
 
+=======
+>>>>>>> c32cb4e436f0b288a927a96c79d22cd29dafda65
 	
 }

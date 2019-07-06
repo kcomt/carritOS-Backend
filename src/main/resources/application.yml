@@ -5,12 +5,23 @@ spring:
         secret: FAS 
   datasource:
     driver-class-name: org.postgresql.Driver
+<<<<<<< HEAD
     password: 9n2016/a
     url: jdbc:postgresql://localhost/carritosrest
+=======
+    password: 1234
+    url: jdbc:postgresql://localhost/carritos
+>>>>>>> c32cb4e436f0b288a927a96c79d22cd29dafda65
     username: postgres
   jpa:
     database: POSTGRESQL
     hibernate:
       ddl-auto: update
     show-sql: 'false'
+<<<<<<< HEAD
     properties.hibernate.temp.use_jdbc_metadata_defaults: false
+=======
+    properties.hibernate.temp.use_jdbc_metadata_defaults: false
+    
+    
+>>>>>>> c32cb4e436f0b288a927a96c79d22cd29dafda65

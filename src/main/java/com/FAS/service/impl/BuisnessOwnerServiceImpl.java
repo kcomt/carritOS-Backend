@@ -5,11 +5,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,7 +13,7 @@ import com.FAS.repository.BuisnessOwnerRepository;
 import com.FAS.service.IBuisnessOwnerService;
 
 @Service
-public class BuisnessOwnerServiceImpl implements IBuisnessOwnerService, UserDetailsService{
+public class BuisnessOwnerServiceImpl implements IBuisnessOwnerService{
 
 	@Autowired
 	private BuisnessOwnerRepository buisnessOwnerRepository;
@@ -78,6 +73,7 @@ public class BuisnessOwnerServiceImpl implements IBuisnessOwnerService, UserDeta
 		// TODO Auto-generated method stub
 		return buisnessOwnerRepository.existsByEmail(email);
 	}
+<<<<<<< HEAD
 
 	@Transactional(readOnly=true)
 	@Override
@@ -95,4 +91,6 @@ public class BuisnessOwnerServiceImpl implements IBuisnessOwnerService, UserDeta
 		return null;
 	}
 	
+=======
+>>>>>>> c32cb4e436f0b288a927a96c79d22cd29dafda65
 }
