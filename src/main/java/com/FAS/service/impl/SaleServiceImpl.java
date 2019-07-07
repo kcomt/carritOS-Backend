@@ -3,6 +3,7 @@ package com.FAS.service.impl;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,6 +15,7 @@ import com.FAS.service.ISaleService;
 @Service
 public class SaleServiceImpl implements ISaleService{
 
+	@Autowired
 	private SaleRepository saleRepository;
 	
 	@Transactional(readOnly=true)
