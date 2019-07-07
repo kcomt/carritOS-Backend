@@ -68,7 +68,7 @@ public class ReviewController {
 	}
 	
 	@ApiOperation("Listado de reviews")
-	@GetMapping(value = "/foodtruck/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/foodTruck/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Review>> fetchreviewsByFoodTruckId(@PathVariable("id") Integer id){
 		try {
 			List<Review> reviews = new ArrayList<>();
