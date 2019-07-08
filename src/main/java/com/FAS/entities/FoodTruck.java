@@ -34,6 +34,10 @@ public class FoodTruck {
 	@Size(min = 1, message = "Cost must be atleast 1 charecters in length")
 	@Column(name = "cost", nullable = false, length = 50)
 	private String cost;
+
+	@Size(min = 1, message = "FoodType must be atleast 1 charecters in length")
+	@Column(name = "url", nullable = false, length = 1000)
+	private String url;
 	
 	@Column(name = "longitude", nullable = false)
 	private float longitude;
@@ -108,6 +112,13 @@ public class FoodTruck {
 	public void setCost(String cost) {
 		this.cost = cost;
 	}
-	
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
 	
 }
