@@ -37,7 +37,7 @@ public class ConsumerController {
 	private IConsumerService consumerService;
 	
 	@ApiOperation("Registro de consumers")
-	@PostMapping(consumes= MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "/safe", consumes= MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> saveconsumer(@Valid @RequestBody Consumer consumer)
 	{
 		try {

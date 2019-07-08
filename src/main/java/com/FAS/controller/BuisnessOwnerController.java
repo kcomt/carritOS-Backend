@@ -39,7 +39,7 @@ public class BuisnessOwnerController {
 	private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 	
 	@ApiOperation("Registro de buisnessOwners")
-	@PostMapping(consumes= MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "/safe", consumes= MediaType.APPLICATION_JSON_VALUE,produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> savebuisnessOwner(@Valid @RequestBody BuisnessOwner buisnessOwner)
 	{
 		try {
