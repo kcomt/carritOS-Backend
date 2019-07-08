@@ -56,7 +56,7 @@ public class ReviewController {
 	}
 	
 	@ApiOperation("Listado de reviews")
-	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/safe", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Review>> fetchreviews(){
 		try {
 			List<Review> reviews = new ArrayList<>();
@@ -68,7 +68,7 @@ public class ReviewController {
 	}
 	
 	@ApiOperation("Listado de reviews")
-	@GetMapping(value = "/foodTruck/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/safe/foodTruck/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Review>> fetchreviewsByFoodTruckId(@PathVariable("id") Integer id){
 		try {
 			List<Review> reviews = new ArrayList<>();
@@ -80,7 +80,7 @@ public class ReviewController {
 	}
 	
 	@ApiOperation("Obtener review por id")
-	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/safe/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Review> fetchreview(@PathVariable("id") Integer id) {
 
 		try {

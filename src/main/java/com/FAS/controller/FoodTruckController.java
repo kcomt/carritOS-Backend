@@ -56,7 +56,7 @@ public class FoodTruckController {
 	}
 	
 	@ApiOperation("Listado de foodTrucks")
-	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/safe", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<FoodTruck>> fetchfoodTrucks(){
 		try {
 			List<FoodTruck> foodTrucks = new ArrayList<>();
@@ -68,7 +68,7 @@ public class FoodTruckController {
 	}
 	
 	@ApiOperation("Listado de foodTrucks")
-	@GetMapping(value = "/ordered", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/safe/ordered", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<FoodTruck>> fetchfoodTrucksOrdered(){
 		try {
 			List<FoodTruck> foodTrucks = new ArrayList<>();
@@ -96,7 +96,7 @@ public class FoodTruckController {
 	}
 	
 	@ApiOperation("Obtener foodTruck por nombre")
-	@GetMapping(value = "/search/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/safe/search/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<FoodTruck>> fetchfoodTruckbyName(@PathVariable("name") String name) {
 
 		try {
@@ -108,8 +108,8 @@ public class FoodTruckController {
 		}
 	}
 	
-	@ApiOperation("Obtener foodTruck por nombre")
-	@GetMapping(value = "/owner/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ApiOperation("Obtener foodTruck por ownerId")
+	@GetMapping(value = "/owner/{ownerId}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<FoodTruck>> fetchfoodTruckbyName(@PathVariable("ownerId") Integer ownerId) {
 
 		try {

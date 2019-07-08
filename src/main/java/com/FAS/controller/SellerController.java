@@ -28,7 +28,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping("/Sellers")
+@RequestMapping("/sellers")
 @Api(value="REST Seller")
 public class SellerController {
 
@@ -54,7 +54,7 @@ public class SellerController {
 	}
 	
 	@ApiOperation("Listado de Sellers")
-	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/safe", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Seller>> fetchSellers(){
 		try {
 			List<Seller> Sellers = new ArrayList<>();
@@ -67,7 +67,7 @@ public class SellerController {
 	
 	
 	@ApiOperation("Listado de Sellers")
-	@GetMapping(value = "/buisnessOwner/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/safe/buisnessOwner/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Seller>> fetchSellersByBuisnessOwnerId(@PathVariable("id") Integer id){
 		try {
 			List<Seller> Sellers = new ArrayList<>();
@@ -79,7 +79,7 @@ public class SellerController {
 	}
 	
 	@ApiOperation("Obtener Seller por id")
-	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/safe/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Seller> fetchSeller(@PathVariable("id") Integer id) {
 
 		try {

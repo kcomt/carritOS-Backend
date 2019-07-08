@@ -55,7 +55,7 @@ public class ConsumerController {
 	}
 	
 	@ApiOperation("Listado de consumers")
-	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/safe", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Consumer>> fetchconsumers(){
 		try {
 			List<Consumer> consumers = new ArrayList<>();
@@ -67,7 +67,7 @@ public class ConsumerController {
 	}
 	
 	@ApiOperation("Obtener consumer por id")
-	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/safe/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Consumer> fetchconsumer(@PathVariable("id") Integer id) {
 
 		try {
@@ -83,7 +83,7 @@ public class ConsumerController {
 	}
 	
 	@ApiOperation("Obtener consumer por username")
-	@GetMapping(value = "/username/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/safe/username/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Consumer> fetchconsumerByUsername(@PathVariable("username") String username) {
 		try {
 			Consumer bO = new Consumer();

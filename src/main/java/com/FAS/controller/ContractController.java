@@ -54,7 +54,7 @@ public class ContractController {
 	}
 	
 	@ApiOperation("Listado de contracts")
-	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/safe", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Contract>> fetchcontracts(){
 		try {
 			List<Contract> contracts = new ArrayList<>();
@@ -66,7 +66,7 @@ public class ContractController {
 	}
 	
 	@ApiOperation("Listado de contracts por ownerId y estado")
-	@GetMapping(value = "owner/{ownerId}/state/{estado}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "safe/owner/{ownerId}/state/{estado}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Contract>> fetchcontractsByownerIdAndState(@PathVariable("ownerId") int ownerId,@PathVariable("estado") boolean estado){
 		try {
 			List<Contract> contracts = new ArrayList<>();
