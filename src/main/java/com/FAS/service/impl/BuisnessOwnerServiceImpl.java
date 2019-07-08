@@ -62,5 +62,10 @@ public class BuisnessOwnerServiceImpl implements IBuisnessOwnerService{
 		buisnessOwnerRepository.deleteAll();
 	}
 
-
+	@Transactional(readOnly = true)
+	@Override
+	public BuisnessOwner findByUsername(String username){
+		// TODO Auto-generated method stub
+		return buisnessOwnerRepository.findByUsername(username);
+	}
 }

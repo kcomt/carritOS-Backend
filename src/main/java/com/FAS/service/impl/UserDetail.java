@@ -47,12 +47,10 @@ public class UserDetail implements UserDetailsService {
 
 		Consumer consumer = findUserConsumer(username);
 		if (consumer != null) {
-			System.out.println(consumer.getPassword() + "=====" + consumer.getUsername());
 			List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 			return new User(consumer.getUsername(), consumer.getPassword(), true, true, true, true, authorities);
 		} else {
 			BuisnessOwner buisnessOwner = findUserBuisnessOwner(username);
-			System.out.println(buisnessOwner.getPassword() + "=====" + buisnessOwner.getUsername());
 			List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 			return new User(buisnessOwner.getUsername(), buisnessOwner.getPassword(), true, true, true, true,authorities);
 		}

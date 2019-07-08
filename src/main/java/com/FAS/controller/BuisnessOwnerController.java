@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.FAS.entities.BuisnessOwner;
+import com.FAS.entities.Consumer;
 import com.FAS.service.IBuisnessOwnerService;
 
 import io.swagger.annotations.Api;
@@ -79,6 +80,18 @@ public class BuisnessOwnerController {
 				return new ResponseEntity<BuisnessOwner>(HttpStatus.NOT_FOUND);
 			}
 			return new ResponseEntity<BuisnessOwner>(bO.get(), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<BuisnessOwner>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@ApiOperation("Obtener buisnessOwner por username")
+	@GetMapping(value = "/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<BuisnessOwner> fetchbuisnessOwnerByUsername(@PathVariable("username") String username) {
+
+		try {
+			BuisnessOwner bO = buisnessOwnerService.findByUsername(username);
+			return new ResponseEntity<BuisnessOwner>(bO, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<BuisnessOwner>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
