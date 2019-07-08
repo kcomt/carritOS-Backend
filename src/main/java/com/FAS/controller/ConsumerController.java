@@ -85,9 +85,9 @@ public class ConsumerController {
 	@ApiOperation("Obtener consumer por username")
 	@GetMapping(value = "/username/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Consumer> fetchconsumerByUsername(@PathVariable("username") String username) {
-
 		try {
-			Consumer bO = consumerService.findByUsername(username);
+			Consumer bO = new Consumer();
+			bO = consumerService.findByUsername(username);
 			return new ResponseEntity<Consumer>(bO, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<Consumer>(HttpStatus.INTERNAL_SERVER_ERROR);

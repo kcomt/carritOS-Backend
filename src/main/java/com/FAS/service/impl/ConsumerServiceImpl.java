@@ -66,13 +66,11 @@ public class ConsumerServiceImpl implements IConsumerService, UserDetailsService
 		consumerRepository.deleteAll();
 	}
 	
-
-	
 	@Transactional(readOnly = true)
 	@Override
 	public Consumer findByUsername(String username) {
 		// TODO Auto-generated method stub
-		return null;
+		return consumerRepository.findByUsername(username);
 	}
 
 	@Override
