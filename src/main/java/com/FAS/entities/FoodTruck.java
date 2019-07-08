@@ -40,10 +40,10 @@ public class FoodTruck {
 	private String url;
 	
 	@Column(name = "longitude", nullable = false)
-	private float longitude;
+	private double longitude;
 	
 	@Column(name = "latitude", nullable = false)
-	private float latitude;
+	private double latitude;
 	
 	@ManyToOne
 	@JoinColumn(name = "buisness_owner_id", nullable = false)
@@ -65,7 +65,7 @@ public class FoodTruck {
 		this.name = name;
 	}
 
-	public float getLongitude() {
+	public double getLongitude() {
 		return longitude;
 	}
 
@@ -73,7 +73,7 @@ public class FoodTruck {
 		this.longitude = longitude;
 	}
 
-	public float getLatitude() {
+	public double getLatitude() {
 		return latitude;
 	}
 
