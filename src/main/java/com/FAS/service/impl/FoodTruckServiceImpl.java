@@ -19,8 +19,7 @@ public class FoodTruckServiceImpl implements IFoodTruckService{
 
 	@Autowired
 	private FoodTruckRepository foodTruckRepository;
-	@Autowired
-	private SaleRepository saleRepository;
+	
 	@Autowired
 	private ReviewRepository reviewRepository;
 	
@@ -55,7 +54,6 @@ public class FoodTruckServiceImpl implements IFoodTruckService{
 	@Transactional
 	@Override
 	public void deleteById(Integer id) throws Exception {
-		saleRepository.deleteInBulkFT(id);
 		reviewRepository.deleteById(id);
 		foodTruckRepository.deleteById(id);
 	}

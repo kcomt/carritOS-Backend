@@ -28,7 +28,7 @@ public class Consumer {
 	@Column(name = "name", nullable = false, length = 100)
 	private String name;
 	
-	@Size(min = 5, message = "Email must be 5 charecters in length")
+	@Size(min = 2, message = "Email must be 5 charecters in length")
 	@Column(name = "email", nullable = false, length = 100)
 	private String email;
 

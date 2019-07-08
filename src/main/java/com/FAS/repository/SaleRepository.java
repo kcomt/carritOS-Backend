@@ -20,6 +20,4 @@ public interface SaleRepository extends JpaRepository<Sale, Integer> {
 	@Query("delete from Sale r where r.sellerId.id = ?1")
 	void deleteInBulk(int id);
 	
-	@Query("delete from Sale r where r.foodTruckId.id = ?1")
-	void deleteInBulkFT(int id);
 }

@@ -41,7 +41,7 @@ public class BuisnessOwner {
 	private String password;
 	
 	@NotBlank
-	@Size(min = 4, message = "Username must be atleast 4 charecters in length")
+	@Size(min = 2, message = "Username must be atleast 4 charecters in length")
 	@Column(name = "name", nullable = false, length = 50)
 	private String name;
 	
@@ -51,8 +51,8 @@ public class BuisnessOwner {
 	private String lastName;
 	
 	@NotBlank
-	@Size(min = 8, message = "DNI must be 8 charecters in length")
-	@Column(name = "dni", nullable = false, length = 8)
+	@Size(min = 2, message = "DNI must be 8 charecters in length")
+	@Column(name = "dni", nullable = false, length = 20)
 	private String dni;
 	
 	@NotBlank

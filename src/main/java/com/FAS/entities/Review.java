@@ -21,7 +21,7 @@ public class Review {
 	@Column(name = "qualification", nullable = true)
 	private int qualification;
 	
-	@Size(min = 5, message = "Comment must be atleast 5 charecters in length")
+	@Size(min = 1, message = "Comment must be atleast 5 charecters in length")
 	@Column(name = "comment", nullable = true, length = 250)
 	private String comment;
 	
