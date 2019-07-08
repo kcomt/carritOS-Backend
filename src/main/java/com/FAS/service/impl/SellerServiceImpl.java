@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.FAS.entities.Seller;
+import com.FAS.repository.SaleRepository;
 import com.FAS.repository.SellerRepository;
 import com.FAS.service.ISellerService;
 
@@ -20,6 +21,8 @@ public class SellerServiceImpl implements ISellerService{
 
 	@Autowired
 	private SellerRepository sellerRepository;
+	@Autowired
+	private SaleRepository saleRepository;
 	
 	@Transactional(readOnly = true)
 	@Override
@@ -48,8 +51,8 @@ public class SellerServiceImpl implements ISellerService{
 
 	@Override
 	public void deleteById(Integer id) throws Exception {
-		// TODO Auto-generated method stub
-		
+		saleRepository.deleteInBulk(id);
+		sellerRepository.deleteById(id);
 	}
 
 	@Override

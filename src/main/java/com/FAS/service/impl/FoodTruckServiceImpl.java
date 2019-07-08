@@ -10,6 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.FAS.entities.FoodTruck;
 import com.FAS.repository.FoodTruckRepository;
+import com.FAS.repository.ReviewRepository;
+import com.FAS.repository.SaleRepository;
 import com.FAS.service.IFoodTruckService;
 
 @Service
@@ -17,6 +19,10 @@ public class FoodTruckServiceImpl implements IFoodTruckService{
 
 	@Autowired
 	private FoodTruckRepository foodTruckRepository;
+	@Autowired
+	private SaleRepository saleRepository;
+	@Autowired
+	private ReviewRepository reviewRepository;
 	
 	@Transactional(readOnly= true)
 	@Override
@@ -49,7 +55,8 @@ public class FoodTruckServiceImpl implements IFoodTruckService{
 	@Transactional
 	@Override
 	public void deleteById(Integer id) throws Exception {
-		// TODO Auto-generated method stub
+		saleRepository.deleteInBulkFT(id);
+		reviewRepository.deleteById(id);
 		foodTruckRepository.deleteById(id);
 	}
 

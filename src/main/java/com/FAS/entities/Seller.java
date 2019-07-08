@@ -18,7 +18,7 @@ public class Seller {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Size(min = 3, message = "Username must be atleast 3 charecters in length")
+	@Size(min = 2, message = "Username must be atleast 3 charecters in length")
 	@Column(name = "username", nullable = false, length = 255)
 	private String username;
 	
@@ -26,12 +26,12 @@ public class Seller {
 	@Column(name = "password", nullable = false, length = 255)
 	private String password;
 	
-	@Size(min = 4, message = "Username must be atleast 4 charecters in length")
+	@Size(min = 1, message = "Username must be atleast 4 charecters in length")
 	@Column(name = "name", nullable = false, length = 255)
 	private String name;
 	
-	@Size(min = 8, message = "DNI must be 8 charecters in length")
-	@Column(name = "dni", nullable = false, length = 8)
+	@Size(min = 1, message = "DNI must be 8 charecters in length")
+	@Column(name = "dni", nullable = false, length = 50)
 	private String dni;
 	
 	@ManyToOne
