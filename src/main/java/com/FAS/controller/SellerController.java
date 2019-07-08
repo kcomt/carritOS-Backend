@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.FAS.entities.BuisnessOwner;
 import com.FAS.entities.Seller;
 import com.FAS.service.ISellerService;
 
@@ -94,6 +95,18 @@ public class SellerController {
 		}
 	}
 
+	@ApiOperation("Obtener seller por username")
+	@GetMapping(value = "/safe/username/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Seller> fetchbuisnessSellerByUsername(@PathVariable("username") String username) {
+
+		try {
+			Seller bO = SellerService.findByUsername(username);
+			return new ResponseEntity<Seller>(bO, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<Seller>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
 	@ApiOperation("Actualizar Seller")
 	@PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> update(@Valid @RequestBody Seller Seller) {
