@@ -83,7 +83,7 @@ public class ConsumerController {
 	}
 	
 	@ApiOperation("Obtener consumer por username")
-	@GetMapping(value = "/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/username/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Consumer> fetchconsumerByUsername(@PathVariable("username") String username) {
 
 		try {
