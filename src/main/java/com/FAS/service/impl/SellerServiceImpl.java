@@ -31,13 +31,13 @@ public class SellerServiceImpl implements ISellerService{
 	@Override
 	public Seller save(Seller t) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return sellerRepository.save(t);
 	}
 
 	@Override
 	public Seller update(Seller t) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return sellerRepository.save(t);
 	}
 
 	@Override
@@ -62,7 +62,7 @@ public class SellerServiceImpl implements ISellerService{
 	@Override
 	public List<Seller> fetchByBuisnessOwnerId(int id) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return sellerRepository.fetchByBuisnessOwnerId(id);
 	}
 
 
@@ -71,7 +71,7 @@ public class SellerServiceImpl implements ISellerService{
 	@Override
 	public Seller findByUsername(String seller) {
 		// TODO Auto-generated method stub
-		return null;
+		return sellerRepository.findByUsername(seller);
 	}
 	
 }

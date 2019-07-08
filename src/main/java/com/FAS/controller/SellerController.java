@@ -68,7 +68,7 @@ public class SellerController {
 	
 	
 	@ApiOperation("Listado de Sellers")
-	@GetMapping(value = "/safe/buisnessOwner/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/buisnessOwner/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Seller>> fetchSellersByBuisnessOwnerId(@PathVariable("id") Integer id){
 		try {
 			List<Seller> Sellers = new ArrayList<>();
