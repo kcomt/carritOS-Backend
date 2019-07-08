@@ -34,7 +34,7 @@ public class Review {
 	private Consumer consumerId;
 	
 	@Size(min = 4, message = "Date must be atleast 4 charecters in length")
-	@Column(name = "date", nullable = false, length = 10)
+	@Column(name = "date", nullable = false, length = 50)
 	private String date;
 
 	public int getId() {

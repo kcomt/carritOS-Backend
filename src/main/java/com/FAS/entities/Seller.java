@@ -19,15 +19,15 @@ public class Seller {
 	private int id;
 	
 	@Size(min = 3, message = "Username must be atleast 3 charecters in length")
-	@Column(name = "username", nullable = false, length = 15)
+	@Column(name = "username", nullable = false, length = 255)
 	private String username;
 	
 	@Size(min = 3, message = "Password must be atleast 3 charecters in length")
-	@Column(name = "password", nullable = false, length = 15)
+	@Column(name = "password", nullable = false, length = 255)
 	private String password;
 	
 	@Size(min = 4, message = "Username must be atleast 4 charecters in length")
-	@Column(name = "name", nullable = false, length = 20)
+	@Column(name = "name", nullable = false, length = 255)
 	private String name;
 	
 	@Size(min = 8, message = "DNI must be 8 charecters in length")

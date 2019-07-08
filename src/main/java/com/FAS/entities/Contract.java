@@ -23,7 +23,7 @@ public class Contract {
 	private String location;
 	
 	@Size(min = 4, message = "Date must be atleast 4 charecters in length")
-	@Column(name = "date", nullable = false, length = 10)
+	@Column(name = "date", nullable = false, length = 50)
 	private String date;
 	
 	@Size(min = 4, message = "Especification must be atleast 4 charecters in length")
