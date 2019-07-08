@@ -86,7 +86,7 @@ public class BuisnessOwnerController {
 	}
 	
 	@ApiOperation("Obtener buisnessOwner por username")
-	@GetMapping(value = "/safe/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/safe/username/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<BuisnessOwner> fetchbuisnessOwnerByUsername(@PathVariable("username") String username) {
 
 		try {
